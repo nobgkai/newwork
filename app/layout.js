@@ -43,13 +43,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <header>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Prompt&family=Inter&display=swap"
-          rel="stylesheet"
-        ></link>
-      </header>
+      
       <body className="bg-white text-gray-800">
+        <header>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Prompt&family=Inter&display=swap"
+            rel="stylesheet"
+          ></link>
+        </header>
         <Navarbar />
 
         {children}

@@ -6,7 +6,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section
-        className="w-full py-24 h-[570px] bg-center bg-no-repeat mt-1"
+        className="w-full py-20 h-[570px] bg-center bg-no-repeat mt-1"
         style={{
           backgroundImage: "url('./img/1.png')",
           backgroundSize: "100%",
@@ -14,26 +14,53 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       ></section>
-      <section>
-        <h1 className="text-red-600 text-6xl font-bold text-left pl-20 mt-9">
-          ร้านป้ายเชียงใหม่ "Artist Advertising"
+      <section className="">
+        <h1 className="text-red-600 text-[55px] font-bold text-left pl-20 mt-9">
+          เห็น เด่น ชัด ทุกสายตา ป้ายโฆษณาเพื่อธุรกิจคุณ
+          สร้างแบรนด์ให้เป็นที่จดจำ ด้วยป้ายคุณภาพจากเรา
         </h1>
         <h2
           className="text-blue-600 font-bold text-left pl-20 mt-9"
-          style={{ fontSize: "55px" }}
+          style={{ fontSize: "48px" }}
         >
           ด้วยประสบการณ์งานป้ายมากกว่า 15 ปี
         </h2>
         <p className="text-blue-600 font-bold  text-3xl text-left pl-20 ">
-          ทางร้านสามารถผลิตงานป้ายได้หลากหลายรูปแบบและหลากหลายวัสดุ
+          ในการสร้างสรรค์ป้ายให้ธุรกิจหลากหลายประเภท ทีมงานมืออาชีพ
+          <br />
+          พร้อมให้คำปรึกษา ออกแบบ และติดตั้ง วัสดุคุณภาพสูง ทนทาน
+          <br />
+          คุ้มค่าแก่การลงทุนในระยะยาว
         </p>
-        <p>
+        <p
+          className="text-blue-600 font-bold text-left pl-20 mt-9"
+          style={{ fontSize: "48px" }}
+        >
+          บริการครบวงจร
+        </p>
+        <p className=" text-blue-600 font-bold text-3xl text-left pl-20">
+          ตั้งแต่ปรึกษา ออกแบบ ผลิต ติดตั้งและการบริการดูแลหลังการขายอย่างจริงใจ
+        </p>
+        <p className="text-gray-600 text-left pl-20 py-10 font-bold text-3xl">
           ไวนิล อักษรโลหะ อักษรพลาสวูด ป้ายตู้ไฟ ป้ายอลูมีเนียมคอมโพสิต
+          <br />
           สื่อสิ่งพิมพ์ นามบัตร โบชัวร์ เมนูอาหาร ป้ายโครงสร้างใหญ่
-          ป้ายทาวน์เวอร์ ป้ายตกแต่งภายในอาคาร{" "}
+          <br />
+          ป้ายทาวน์เวอร์ ป้ายตกแต่งภายในอาคาร
+          <br />
+        </p>
+        <p
+          className="text-red-600 font-bold text-left pl-20 "
+          style={{ fontSize: " 46px" }}
+        >
+          ประสบการณ์ในโครงการใหญ่ มาตรฐานความปลอดภัยระดับสูง
         </p>
       </section>
-
+      <section className="max-w-screen-xl max-auto">
+        <h1 className="text-6xl font-bold text-red-600 text-left pl-20 py-10">
+          ป้ายโฆษณาครบวงจร ตอบโจทย์ทุกขนาดธุรกิจ
+        </h1>
+      </section>
       {/* Services Section */}
       <section id="services" className="py-20 px-8">
         <h3 className="text-3xl font-semibold text-center mb-12">
@@ -66,7 +93,10 @@ export default function Home() {
               desc: "ดึงดูดสายตาทั้งกลางวันและกลางคืน เหมาะสำหรับการตลาด",
             },
           ].map(({ title, desc }, i) => (
-            <div key={i} className="col-span-3 p-6 shadow-lg rounded-xl border">
+            <div
+              key={i}
+              className="col-span-3 p-6 rounded-xl shadow-lg border border-white/20 bg-white/30 backdrop-blur-md"
+            >
               <h4 className="text-xl font-bold mb-2">{title}</h4>
               <p>{desc}</p>
               <a
@@ -112,20 +142,20 @@ export default function Home() {
           ช่องทางการติดต่อ
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-screen-xl mx-auto">
-          <div className="p-8 border rounded-xl shadow-md flex flex-col items-center">
+          <div className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md">
             <h4 className="text-xl font-bold mb-6">เพจเฟสบุ๊ค</h4>
             <i className="fa-brands fa-facebook-messenger text-7xl text-blue-600 mb-8"></i>
             <a
               href="https://m.me/TripleSCM/?locale=th_TH"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg"
+              className="inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg "
             >
               สนใจติดต่อ
             </a>
           </div>
 
-          <div className="p-8 border rounded-xl shadow-md">
+          <div className="p-8 border rounded-xl shadow-md border-white/20 bg-white/30 backdrop-blur-md">
             <h4 className="text-xl font-bold mb-6">เบอร์ติดต่อ</h4>
             <i className="fa-solid fa-phone-volume text-green-600 mb-6 text-5xl"></i>
             <ul className="text-sm mb-6">
@@ -136,7 +166,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="p-8 border rounded-xl shadow-md flex flex-col items-center">
+          <div className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md">
             <h4 className="text-xl font-bold mb-6">Line</h4>
             <i
               className="fa-brands fa-line"
