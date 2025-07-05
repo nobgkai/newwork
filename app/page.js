@@ -5,100 +5,116 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="w-full py-20 h-[570px] bg-center bg-no-repeat mt-1"
-        style={{
-          backgroundImage: "url('./img/1.png')",
-          backgroundSize: "100%",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      ></section>
-      <section className="">
-        <h1 className="text-red-600 text-[55px] font-bold text-left pl-20 mt-9">
-          เห็น เด่น ชัด ทุกสายตา ป้ายโฆษณาเพื่อธุรกิจคุณ
-          สร้างแบรนด์ให้เป็นที่จดจำ ด้วยป้ายคุณภาพจากเรา
-        </h1>
-        <h2
-          className="text-blue-600 font-bold text-left pl-20 mt-9"
-          style={{ fontSize: "48px" }}
-        >
-          ด้วยประสบการณ์งานป้ายมากกว่า 15 ปี
-        </h2>
-        <p className="text-blue-600 font-bold  text-3xl text-left pl-20 ">
-          ในการสร้างสรรค์ป้ายให้ธุรกิจหลากหลายประเภท ทีมงานมืออาชีพ
-          <br />
-          พร้อมให้คำปรึกษา ออกแบบ และติดตั้ง วัสดุคุณภาพสูง ทนทาน
-          <br />
-          คุ้มค่าแก่การลงทุนในระยะยาว
-        </p>
-        <p
-          className="text-blue-600 font-bold text-left pl-20 mt-9"
-          style={{ fontSize: "48px" }}
-        >
-          บริการครบวงจร
-        </p>
-        <p className=" text-blue-600 font-bold text-3xl text-left pl-20">
-          ตั้งแต่ปรึกษา ออกแบบ ผลิต ติดตั้งและการบริการดูแลหลังการขายอย่างจริงใจ
-        </p>
-        <p className="text-gray-600 text-left pl-20 py-10 font-bold text-3xl">
-          ไวนิล อักษรโลหะ อักษรพลาสวูด ป้ายตู้ไฟ ป้ายอลูมีเนียมคอมโพสิต
-          <br />
-          สื่อสิ่งพิมพ์ นามบัตร โบชัวร์ เมนูอาหาร ป้ายโครงสร้างใหญ่
-          <br />
-          ป้ายทาวน์เวอร์ ป้ายตกแต่งภายในอาคาร
-          <br />
-        </p>
-        <p
-          className="text-red-600 font-bold text-left pl-20 "
-          style={{ fontSize: " 46px" }}
-        >
-          ประสบการณ์ในโครงการใหญ่ มาตรฐานความปลอดภัยระดับสูง
-        </p>
+      <section className="relative width[1000px]  mt-1 overflow-hidden">
+        <Image
+          src="/img/web1.png"
+          alt="background"
+          width="2000"
+          height="1000"
+          className="object-cover"
+          priority
+        ></Image>
       </section>
-      <section className="max-w-screen-xl max-auto">
-        <h1 className="text-6xl font-bold text-red-600 text-left pl-20 py-10">
-          ป้ายโฆษณาครบวงจร ตอบโจทย์ทุกขนาดธุรกิจ
-        </h1>
+      <section className="mt-10">
+        <div className="max-w-screen-xl mx-auto ">
+          <h1 className="text-red-600  text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px] font-bold text-left pl-5">
+            เห็น เด่น ชัด ทุกสายตา ป้ายโฆษณาเพื่อธุรกิจคุณ
+            สร้างแบรนด์ให้เป็นที่จดจำ ด้วยป้ายคุณภาพจากเรา
+          </h1>
+          <h2 className="text-blue-600 font-bold text-left pl-5 mt-5 text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px]">
+            ด้วยประสบการณ์งานป้ายมากกว่า 15 ปี
+          </h2>
+          <p className="text-blue-600 font-bold   text-left pl-5  text-[20px] sm:text-[23px] md:text-[25px] lg:text-[25px] ">
+            ในการสร้างสรรค์ป้ายให้ธุรกิจหลากหลายประเภท ทีมงานมืออาชีพ
+            <br />
+            พร้อมให้คำปรึกษา ออกแบบ และติดตั้ง วัสดุคุณภาพสูง ทนทาน
+            <br />
+            คุ้มค่าแก่การลงทุนในระยะยาว
+          </p>
+          <p className="text-blue-600 font-bold text-left pl-5 mt-5 text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px]">
+            บริการครบวงจร
+          </p>
+          <p className=" text-blue-600 font-bold text-3xl text-left pl-5 text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px]">
+            ตั้งแต่ปรึกษา ออกแบบ ผลิต
+            ติดตั้งและการบริการดูแลหลังการขายอย่างจริงใจ
+          </p>
+          <p className="text-gray-600 text-left0 font-bold text-[20px] sm:text-[23px] md:text-[25px] lg:text-[25px] pl-5 mt-5">
+            ไวนิล อักษรโลหะ อักษรพลาสวูด ป้ายตู้ไฟ ป้ายอลูมีเนียมคอมโพสิต
+            <br />
+            สื่อสิ่งพิมพ์ นามบัตร โบชัวร์ เมนูอาหาร ป้ายโครงสร้างใหญ่
+            <br />
+            ป้ายทาวน์เวอร์ ป้ายตกแต่งภายในอาคาร
+            <br />
+          </p>
+          <p
+            className="text-red-600 font-bold text-left pl-5 mt-5 text-[26px] sm:text-[40px] md:text-[45px] lg:text-[48px]  "
+            s
+          >
+            ประสบการณ์ในโครงการใหญ่ มาตรฐานความปลอดภัยระดับสูง
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-10 ">
+        <div className=" w-full backdrop-blur-md bg-white/30 rounded-2xl shadow-md p-8 text-center border border-white/20">
+          <h1 className="text-4xl md:text-6xl font-bold text-red-600 leading-tight">
+            ป้ายโฆษณาครบวงจร
+            <br className="hidden md:block" />
+            <span className="block md:inline">ตอบโจทย์ทุกขนาดธุรกิจ</span>
+          </h1>
+        </div>
       </section>
       {/* Services Section */}
       <section id="services" className="py-20 px-8">
         <h3 className="text-3xl font-semibold text-center mb-12">
-          บริการของเรา
+          ตัวอย่างงานของเรา
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 text-center max-w-screen-xl mx-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 text-center max-w-4xl mx-auto ">
           {[
             {
-              title: "ป้ายไวนิล",
-              desc: "เหมาะสำหรับงานโฆษณากลางแจ้ง ติดตั้งง่าย ทนทาน",
+              title: "ป้ายไวนิล/สติ๊กเกอร์/สแตนดี้",
+
+              img: "/img/service/040/2.jpg",
             },
             {
-              title: "นีออนเฟก",
-              desc: "เหมาะสำหรับงานโฆษณากลางแจ้ง ติดตั้งง่าย ทนทาน",
+              title: "อักษรโลหะ/อักษรพลาสวูด",
+
+              img: "/img/service/050/42.jpg",
             },
             {
-              title: "อักษรพลาสวูด",
-              desc: "เหมาะสำหรับงานโฆษณากลางแจ้ง ติดตั้งง่าย ทนทาน",
+              title: "อลูมีเนียมคอมโพสิต",
+
+              img: "/img/service/010/8.jpg",
             },
             {
-              title: "อักษรโลหะ",
-              desc: "เหมาะสำหรับงานโฆษณากลางแจ้ง ติดตั้งง่าย ทนทาน",
+              title: "ป้ายตู้ไฟ",
+
+              img: "/img/service/020/13.jpg",
             },
             {
-              title: "ตู้ไฟ",
-              desc: "เหมาะสำหรับงานโฆษณากลางแจ้ง ติดตั้งง่าย ทนทาน",
+              title: "ป้ายนีออนเฟล็ค",
+
+              img: "/img/service/030/3.jpg",
             },
             {
-              title: "ป้ายไฟ LED",
-              desc: "ดึงดูดสายตาทั้งกลางวันและกลางคืน เหมาะสำหรับการตลาด",
+              title: "งานอีเว้นท์และอื่นๆ",
+
+              img: "/img/service/060/59.jpg",
             },
-          ].map(({ title, desc }, i) => (
+          ].map(({ title, desc, img }, i) => (
             <div
               key={i}
               className="col-span-3 p-6 rounded-xl shadow-lg border border-white/20 bg-white/30 backdrop-blur-md"
             >
               <h4 className="text-xl font-bold mb-2">{title}</h4>
-              <p>{desc}</p>
+              <Image
+                src={img}
+                alt={title}
+                width={500}
+                height={500}
+                className="w-50 h-48 object-cover rounded-lg mb-4  block mx-auto "
+              />
+
               <a
                 href="#contact"
                 className="mt-4 inline-block border-2 border-gray-600 text-sky-600 px-6 py-2 rounded-full hover:bg-sky-100 hover:text-sky-800 transition transform hover:-translate-y-1 hover:shadow-lg"
@@ -113,7 +129,7 @@ export default function Home() {
       {/* Facebook Section */}
       <section id="Facebook" className="py-20 px-7">
         <div className="grid grid-cols-1 md:grid-cols-1 max-w-screen-xl mx-auto gap-8">
-          <div className="p-8 border rounded-xl shadow-md flex flex-col md:flex items-center py-20">
+          <div className="p-8 border rounded-xl shadow-md flex flex-col md:flex items-center py-20 col-span-3 p-6 rounded-xl shadow-lg border border-white/20 bg-white/30 backdrop-blur-md">
             <div
               className="fb-page"
               data-href="https://www.facebook.com/TripleSCM/?locale=th_TH"
