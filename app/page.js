@@ -11,8 +11,8 @@ export default function Home() {
         <Image
           src="/img/web1.png"
           alt="background"
-          width="2000"
-          height="1000"
+          width={2000}
+          height={1000}
           className="object-cover"
           priority
         ></Image>
@@ -65,7 +65,6 @@ export default function Home() {
       </section>
 
       <section className="flex flex-col md:flex-row justify-center items-center gap-8 my-10 pt-6">
-    
         <div
           className="w-60 h-60 flex items-center justify-center border-4 border-orange-400 rounded-full text-center
               text-orange-500 text-2xl font-bold
