@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative mt-15 sm:mt-16 md:mt-15 lg:mt-15 xl:mt-15 overflow-hidden">
         <Image
-          src="/img/web1.png"
+          src="/img/ppp.png"
           alt="background"
           width={2000}
           height={1000}
