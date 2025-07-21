@@ -1,11 +1,13 @@
 import Image from "next/image";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative width[1000px]  mt-1 overflow-hidden">
+      <section className="relative mt-15 sm:mt-16 md:mt-15 lg:mt-15 xl:mt-15 overflow-hidden">
         <Image
           src="/img/web1.png"
           alt="background"
@@ -46,10 +48,7 @@ export default function Home() {
             ป้ายทาวน์เวอร์ ป้ายตกแต่งภายในอาคาร
             <br />
           </p>
-          <p
-            className="text-red-600 font-bold text-left pl-5 mt-5 text-[26px] sm:text-[40px] md:text-[45px] lg:text-[48px]  "
-            s
-          >
+          <p className="text-red-600 font-bold text-left pl-5 mt-5 text-[26px] sm:text-[40px] md:text-[45px] lg:text-[48px]  ">
             ประสบการณ์ในโครงการใหญ่ มาตรฐานความปลอดภัยระดับสูง
           </p>
         </div>
@@ -64,6 +63,52 @@ export default function Home() {
           </h1>
         </div>
       </section>
+
+      <section className="flex flex-col md:flex-row justify-center items-center gap-8 my-10 pt-6">
+        {/* ปุ่ม 1: SME และ Startup */}
+        <div
+          className="w-60 h-60 flex items-center justify-center border-4 border-orange-400 rounded-full text-center
+              text-orange-500 text-2xl font-bold
+              hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-orange-100
+              transition duration-300 ease-in-out cursor-pointer"
+        >
+          <p>
+            สำหรับ SME
+            <br />
+            และ Startup
+          </p>
+        </div>
+
+        {/* ปุ่ม 2: ธุรกิจประเภทต่างๆ */}
+        <div
+          className="w-60 h-60 flex items-center justify-center border-4 border-blue-700 rounded-full text-center
+              text-blue-700 text-2xl font-bold
+              hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-blue-100
+              transition duration-300 ease-in-out cursor-pointer"
+        >
+          <p>
+            ธุรกิจประเภท
+            <br />
+            ต่างๆ
+          </p>
+        </div>
+
+        {/* ปุ่ม 3: ธุรกิจขนาดกลางถึงใหญ่ */}
+        <div
+          className="w-60 h-60 flex items-center justify-center border-4 border-pink-600 rounded-full text-center
+              text-pink-600 text-2xl font-bold
+              hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-pink-100
+              transition duration-300 ease-in-out cursor-pointer"
+        >
+          <p>
+            สำหรับ
+            <br />
+            ธุรกิจขนาด
+            <br />
+            กลางถึงใหญ่
+          </p>
+        </div>
+      </section>
       {/* Services Section */}
       <section id="services" className="py-20 px-8">
         <h3 className="text-3xl font-semibold text-center mb-12">
@@ -73,35 +118,35 @@ export default function Home() {
           {[
             {
               title: "ป้ายไวนิล/สติ๊กเกอร์/สแตนดี้",
-
+              link: "/showvie",
               img: "/img/service/040/2.jpg",
             },
             {
               title: "อักษรโลหะ/อักษรพลาสวูด",
-
+              link: "/show2",
               img: "/img/service/050/42.jpg",
             },
             {
               title: "อลูมีเนียมคอมโพสิต",
-
+              link: "/show3",
               img: "/img/service/010/8.jpg",
             },
             {
               title: "ป้ายตู้ไฟ",
-
+              link: "/show4",
               img: "/img/service/020/13.jpg",
             },
             {
               title: "ป้ายนีออนเฟล็ค",
-
+              link: "/show5",
               img: "/img/service/030/3.jpg",
             },
             {
               title: "งานอีเว้นท์และอื่นๆ",
-
+              link: "/show6",
               img: "/img/service/060/59.jpg",
             },
-          ].map(({ title, desc, img }, i) => (
+          ].map(({ title, desc, img, link }, i) => (
             <div
               key={i}
               className="col-span-3 p-6 rounded-xl shadow-lg border border-white/20 bg-white/30 backdrop-blur-md"
@@ -116,7 +161,7 @@ export default function Home() {
               />
 
               <a
-                href="#contact"
+                href={link}
                 className="mt-4 inline-block border-2 border-gray-600 text-sky-600 px-6 py-2 rounded-full hover:bg-sky-100 hover:text-sky-800 transition transform hover:-translate-y-1 hover:shadow-lg"
               >
                 รับชมผลงาน
@@ -127,45 +172,47 @@ export default function Home() {
       </section>
 
       {/* Facebook Section */}
-      <section id="Facebook" className="py-20 px-7">
-        <div className="grid grid-cols-1 md:grid-cols-1 max-w-screen-xl mx-auto gap-8">
-          <div className="p-8 border rounded-xl shadow-md flex flex-col md:flex items-center py-20 col-span-3 p-6 rounded-xl shadow-lg border border-white/20 bg-white/30 backdrop-blur-md">
-            <div
-              className="fb-page"
-              data-href="https://www.facebook.com/TripleSCM/?locale=th_TH"
-              data-tabs="timeline"
-              data-width="700"
-              data-height="500"
-              data-small-header="false"
-              data-adapt-container-width="false"
-              data-hide-cover="false"
-              data-show-facepile="true"
-            >
-              <blockquote
-                cite="https://www.facebook.com/TripleSCM"
-                className="fb-xfbml-parse-ignore"
-              >
-                <a href="https://www.facebook.com/TripleSCM">Triple-S Media</a>
-              </blockquote>
-            </div>
+      <section id="Facebook" className="py-5 px-6 ">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h1 className="text-3xl font-semibold text-gray-800 mb-2">
+            ติดตามเรา
+          </h1>
+          <p className="text-gray-500 text-lg">
+            บนเพจ Facebook เพื่อรับข่าวสารล่าสุด
+          </p>
+        </div>
+
+        <div className="max-w-2xl mx-auto">
+          <div className="p-6 md:p-8 rounded-2xl shadow-xl bg-white/70 backdrop-blur-lg border border-gray-200 flex justify-center">
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArtistAdvertisingCM&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+              width="340"
+              height="331"
+              style={{ border: "none", overflow: "hidden" }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              className="rounded-lg"
+            ></iframe>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="pricing" className="py-20 bg-gray-50 px-8">
+      <section id="pricing" className="py-20 bg-gray-50 px-8 mt-10">
         <h3 className="text-3xl font-semibold text-center mb-12">
           ช่องทางการติดต่อ
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-screen-xl mx-auto">
           <div className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md">
             <h4 className="text-xl font-bold mb-6">เพจเฟสบุ๊ค</h4>
-            <i className="fa-brands fa-facebook-messenger text-7xl text-blue-600 mb-8"></i>
+            <i className="fa-brands fa-facebook-messenger text-7xl text-blue-600 mb-8 transition-transform duration-300 hover:scale-110 hover:rotate-6"></i>
             <a
-              href="https://m.me/TripleSCM/?locale=th_TH"
+              href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg "
+              className=" mt-5 inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg "
             >
               สนใจติดต่อ
             </a>
@@ -173,26 +220,22 @@ export default function Home() {
 
           <div className="p-8 border rounded-xl shadow-md border-white/20 bg-white/30 backdrop-blur-md">
             <h4 className="text-xl font-bold mb-6">เบอร์ติดต่อ</h4>
-            <i className="fa-solid fa-phone-volume text-green-600 mb-6 text-5xl"></i>
+            <i className="fa-solid fa-phone-volume text-5xl text-green-600 mb-8 transition-transform duration-300 hover:scale-110 hover:rotate-6"></i>
             <ul className="text-sm mb-6">
               <li>• 097-881-4791</li>
             </ul>
-            <a className="inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg">
-              สั่งเลย
+            <a
+              href="tel:0978814791"
+              className="inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg"
+            >
+              สนใจติดต่อ
             </a>
           </div>
 
           <div className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md">
             <h4 className="text-xl font-bold mb-6">Line</h4>
-            <i
-              className="fa-brands fa-line"
-              style={{
-                color: "#00ff2a",
-                fontSize: "4.5rem",
-                marginBottom: "1.75rem",
-              }}
-            ></i>
-            <a className="inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg">
+            <i className="fa-brands fa-line text-7xl text-green-500 mb-8 transition-transform duration-300 hover:scale-110 hover:rotate-6"></i>
+            <a className="mt-5 inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg">
               สนใจติดต่อ
             </a>
           </div>
