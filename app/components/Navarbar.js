@@ -16,7 +16,7 @@ export default function Navarbar() {
           href="/"
           className="text-lg sm:text-xl font-semibold text-white hover:text-gray-300 transition"
         >
-          Triple-S Media Design
+          Artist Advertising And Organizer
         </Link>
       </div>
     </header>

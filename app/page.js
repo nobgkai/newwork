@@ -55,17 +55,20 @@ export default function Home() {
       </section>
 
       <section className="mt-10 ">
-        <div className=" w-full backdrop-blur-md bg-white/30 rounded-2xl shadow-md p-8 text-center border border-white/20">
+        <a className=" w-full backdrop-blur-md bg-white/30 rounded-2xl shadow-md p-8 text-center border border-white/20">
           <h1 className="text-4xl md:text-6xl font-bold text-red-600 leading-tight">
             ป้ายโฆษณาครบวงจร
             <br className="hidden md:block" />
             <span className="block md:inline">ตอบโจทย์ทุกขนาดธุรกิจ</span>
           </h1>
-        </div>
+        </a>
       </section>
 
       <section className="flex flex-col md:flex-row justify-center items-center gap-8 my-10 pt-6">
-        <div
+        <a
+          href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-60 h-60 flex items-center justify-center border-4 border-orange-400 rounded-full text-center
               text-orange-500 text-2xl font-bold
               hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-orange-100
@@ -76,10 +79,13 @@ export default function Home() {
             <br />
             และ Startup
           </p>
-        </div>
+        </a>
 
         {/* ปุ่ม 2: ธุรกิจประเภทต่างๆ */}
         <div
+          href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-60 h-60 flex items-center justify-center border-4 border-blue-700 rounded-full text-center
               text-blue-700 text-2xl font-bold
               hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-blue-100
@@ -93,7 +99,10 @@ export default function Home() {
         </div>
 
         {/* ปุ่ม 3: ธุรกิจขนาดกลางถึงใหญ่ */}
-        <div
+        <a
+          href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-60 h-60 flex items-center justify-center border-4 border-pink-600 rounded-full text-center
               text-pink-600 text-2xl font-bold
               hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-pink-100
@@ -106,7 +115,7 @@ export default function Home() {
             <br />
             กลางถึงใหญ่
           </p>
-        </div>
+        </a>
       </section>
       {/* Services Section */}
       <section id="services" className="py-20 px-8">
