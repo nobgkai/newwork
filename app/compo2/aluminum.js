@@ -7,11 +7,11 @@ const images = [
   { src: "/img/service/050/37.jpg", alt: "ภาพ 2" },
   { src: "/img/service/050/34.jpg", alt: "ภาพ 3" },
   { src: "/img/service/010/7.jpg", alt: "ภาพ 4" },
-  { src: "/img/service/040/8.jpg", alt: "ภาพ 5" },
-  { src: "/img/service/040/10.jpg", alt: "ภาพ 6" },
-  { src: "/img/service/040/13.jpg", alt: "ภาพ 7" },
-  { src: "/img/service/040/14.jpg", alt: "ภาพ 8" },
-  { src: "/img/service/040/15.jpg", alt: "ภาพ 9" },
+  { src: "/img/service/020/27.jpg", alt: "ภาพ 5" },
+  { src: "/img/service/020/28.jpg", alt: "ภาพ 6" },
+  { src: "/img/service/020/29.jpg", alt: "ภาพ 7" },
+  { src: "/img/service/020/30.jpg", alt: "ภาพ 8" },
+  { src: "/img/service/020/32.jpg", alt: "ภาพ 9" },
 ];
 
 export default function Aluminum() {

@@ -10,17 +10,23 @@ export default function Footer() {
           <h4 className="font-bold mb-4">ลิงก์ด่วน</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#services" className="hover:underline">
+              <a
+                href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
+                className="hover:underline"
+              >
                 บริการ
               </a>
             </li>
             <li>
-              <a href="#portfolio" className="hover:underline">
+              <a href="/show6" className="hover:underline">
                 ผลงาน
               </a>
             </li>
             <li>
-              <a href="#contact" className="hover:underline">
+              <a
+                href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
+                className="hover:underline"
+              >
                 ติดต่อ
               </a>
             </li>
@@ -28,6 +34,7 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="font-bold mb-4">ติดต่อเรา</h4>
+
           <p>โทร: 091-123-4567</p>
           <p>อีเมล: triple-sign@email.com</p>
         </div>

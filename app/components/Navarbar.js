@@ -6,7 +6,7 @@ export default function Navarbar() {
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 shadow-sm text-white">
       <div className="flex items-center px-4 sm:px-8 py-3 max-w-screen-xl mx-auto">
         <Image
-          src="/img/logo.jpg"
+          src="/img/logo1.jpg"
           alt="โลโก้ร้าน"
           width={40}
           height={40}

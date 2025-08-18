@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const images = [
   { src: "/img/service/040/2.jpg", alt: "ภาพ 1" },
@@ -17,6 +19,14 @@ const images = [
 export default function Vinyl() {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 80,
+    });
+  }, []);
+
   return (
     <>
       {/* แกลเลอรีภาพแบบ responsive */}
@@ -28,11 +38,13 @@ export default function Vinyl() {
             alt={alt}
             className="w-full h-48 object-cover rounded shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => setSelectedImage(src)}
+            data-aos="zoom-in"
+            data-aos-delay={idx * 100}
           />
         ))}
       </div>
 
-      {/* Lightbox แบบค่อย ๆ โผล่ พร้อมขยายเต็มมากขึ้น */}
+      {/* Lightbox */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 animate-fadein"
@@ -53,7 +65,7 @@ export default function Vinyl() {
         </div>
       )}
 
-      {/* เพิ่ม keyframes สำหรับ fade-in และ zoom-in */}
+      {/* Keyframes */}
       <style jsx global>{`
         @keyframes fadein {
           from {

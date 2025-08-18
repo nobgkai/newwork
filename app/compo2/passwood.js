@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const images = [
   { src: "/img/service/010/2.jpg", alt: "ภาพ 1" },
@@ -20,16 +22,31 @@ const images = [
 export default function Passwood() {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // ความเร็วอนิเมชัน
+      easing: "ease-out", // จังหวะลื่นตา
+      once: true, // เล่นครั้งเดียว
+      offset: 80, // เริ่มก่อนเข้า viewport นิดนึง
+    });
+  }, []);
+
   return (
     <>
-      {/* แกลเลอรีภาพแบบ responsive */}
-      <div className="text-center my-10">
+      {/* หัวข้อ + เส้นใต้ */}
+      <div className="text-center my-10" data-aos="fade-up">
         <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 relative inline-block pb-2">
           ผลงาน พลาสวูด
-          <span className="block  h-0.5 bg-black mx-auto mt-2 rounded opacity-70"></span>
+          <span className="block h-0.5 bg-black mx-auto mt-2 rounded opacity-70"></span>
         </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 sm:px-6 lg:px-8 my-8">
+
+      {/* แกลเลอรีภาพแบบ responsive */}
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 sm:px-6 lg:px-8 my-8"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         {images.map(({ src, alt }, idx) => (
           <img
             key={idx}
@@ -37,6 +54,8 @@ export default function Passwood() {
             alt={alt}
             className="w-full h-48 object-cover rounded shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => setSelectedImage(src)}
+            data-aos={["zoom-in", "fade-up", "fade-up"][idx % 3]} // สลับ effect เบาๆ
+            data-aos-delay={100 + (idx % 6) * 80} // ไล่สเต็ปเป็นคลื่น
           />
         ))}
       </div>
@@ -56,6 +75,7 @@ export default function Passwood() {
           <button
             onClick={() => setSelectedImage(null)}
             className="absolute top-5 right-5 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition"
+            aria-label="ปิดรูปภาพ"
           >
             ✕
           </button>

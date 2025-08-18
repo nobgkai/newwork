@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const images = [
   { src: "/img/service/030/10.jpg", alt: "ภาพ 1" },
@@ -17,19 +19,40 @@ const images = [
 export default function Neon() {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // ความเร็วอนิเมชัน
+      easing: "ease-out", // ลื่นตา
+      once: true, // เล่นครั้งเดียวเมื่อเลื่อนถึง
+      offset: 80, // เริ่มก่อนเข้า viewport นิดนึง
+    });
+  }, []);
+
   return (
     <>
       {/* แกลเลอรีภาพแบบ responsive */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 sm:px-6 lg:px-8 my-8">
-        {images.map(({ src, alt }, idx) => (
-          <img
-            key={idx}
-            src={src}
-            alt={alt}
-            className="w-full h-48 object-cover rounded shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => setSelectedImage(src)}
-          />
-        ))}
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 sm:px-6 lg:px-8 my-8"
+        data-aos="fade-up"
+      >
+        {images.map(({ src, alt }, idx) => {
+          // เลือกเอฟเฟ็กต์ตามคอลัมน์: ซ้าย -> ขวา
+          const col = idx % 3;
+          const effect =
+            col === 0 ? "fade-right" : col === 1 ? "zoom-in" : "fade-left";
+
+          return (
+            <img
+              key={idx}
+              src={src}
+              alt={alt}
+              className="w-full h-48 object-cover rounded shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={() => setSelectedImage(src)}
+              data-aos={effect}
+              data-aos-delay={100 + (idx % 6) * 80} // ไล่สเต็ปเป็นคลื่น
+            />
+          );
+        })}
       </div>
 
       {/* Lightbox แบบค่อย ๆ โผล่ พร้อมขยายเต็มมากขึ้น */}
@@ -47,13 +70,14 @@ export default function Neon() {
           <button
             onClick={() => setSelectedImage(null)}
             className="absolute top-5 right-5 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition"
+            aria-label="ปิดรูปภาพ"
           >
             ✕
           </button>
         </div>
       )}
 
-      {/* เพิ่ม keyframes สำหรับ fade-in และ zoom-in */}
+      {/* Keyframes ของ lightbox */}
       <style jsx global>{`
         @keyframes fadein {
           from {

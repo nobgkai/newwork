@@ -1,9 +1,21 @@
+"use client";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
 import Link from "next/link";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({
+      duration: 900, // ความเร็วอนิเมชัน
+      easing: "ease-out-cubic",
+      once: true, // เล่นครั้งเดียวเมื่อเลื่อนถึง
+      offset: 80, // เริ่มเล่นก่อนถึง viewport เล็กน้อย
+    });
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -15,32 +27,62 @@ export default function Home() {
           height={1000}
           className="object-cover"
           priority
-        ></Image>
+          data-aos="fade-in"
+        />
       </section>
+
       <section className="mt-10">
         <div className="max-w-screen-xl mx-auto ">
-          <h1 className="text-red-600  text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px] font-bold text-left pl-5">
+          <h1
+            className="text-red-600  text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px] font-bold text-left pl-5"
+            data-aos="fade-up"
+          >
             เห็น เด่น ชัด ทุกสายตา ป้ายโฆษณาเพื่อธุรกิจคุณ
             สร้างแบรนด์ให้เป็นที่จดจำ ด้วยป้ายคุณภาพจากเรา
           </h1>
-          <h2 className="text-blue-600 font-bold text-left pl-5 mt-5 text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px]">
+
+          <h2
+            className="text-blue-600 font-bold text-left pl-5 mt-5 text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px]"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             ด้วยประสบการณ์งานป้ายมากกว่า 15 ปี
           </h2>
-          <p className="text-blue-600 font-bold   text-left pl-5  text-[20px] sm:text-[23px] md:text-[25px] lg:text-[25px] ">
+
+          <p
+            className="text-blue-600 font-bold   text-left pl-5  text-[20px] sm:text-[23px] md:text-[25px] lg:text-[25px] "
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             ในการสร้างสรรค์ป้ายให้ธุรกิจหลากหลายประเภท ทีมงานมืออาชีพ
             <br />
             พร้อมให้คำปรึกษา ออกแบบ และติดตั้ง วัสดุคุณภาพสูง ทนทาน
             <br />
             คุ้มค่าแก่การลงทุนในระยะยาว
           </p>
-          <p className="text-blue-600 font-bold text-left pl-5 mt-5 text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px]">
+
+          <p
+            className="text-blue-600 font-bold text-left pl-5 mt-5 text-[32px] sm:text-[40px] md:text-[45px] lg:text-[48px]"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             บริการครบวงจร
           </p>
-          <p className=" text-blue-600 font-bold text-3xl text-left pl-5 text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px]">
+
+          <p
+            className=" text-blue-600 font-bold text-3xl text-left pl-5 text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px]"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             ตั้งแต่ปรึกษา ออกแบบ ผลิต
             ติดตั้งและการบริการดูแลหลังการขายอย่างจริงใจ
           </p>
-          <p className="text-gray-600 text-left0 font-bold text-[20px] sm:text-[23px] md:text-[25px] lg:text-[25px] pl-5 mt-5">
+
+          <p
+            className="text-gray-600 text-left0 font-bold text-[20px] sm:text-[23px] md:text-[25px] lg:text-[25px] pl-5 mt-5"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
             ไวนิล อักษรโลหะ อักษรพลาสวูด ป้ายตู้ไฟ ป้ายอลูมีเนียมคอมโพสิต
             <br />
             สื่อสิ่งพิมพ์ นามบัตร โบชัวร์ เมนูอาหาร ป้ายโครงสร้างใหญ่
@@ -48,14 +90,22 @@ export default function Home() {
             ป้ายทาวน์เวอร์ ป้ายตกแต่งภายในอาคาร
             <br />
           </p>
-          <p className="text-red-600 font-bold text-left pl-5 mt-5 text-[26px] sm:text-[40px] md:text-[45px] lg:text-[48px]  ">
+
+          <p
+            className="text-red-600 font-bold text-left pl-5 mt-5 text-[26px] sm:text-[40px] md:text-[45px] lg:text-[48px]"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             ประสบการณ์ในโครงการใหญ่ มาตรฐานความปลอดภัยระดับสูง
           </p>
         </div>
       </section>
 
       <section className="mt-10 ">
-        <a className=" w-full backdrop-blur-md bg-white/30 rounded-2xl shadow-md p-8 text-center border border-white/20">
+        <a
+          className=" w-full backdrop-blur-md bg-white/30 rounded-2xl shadow-md p-8 text-center border border-white/20"
+          data-aos="zoom-in"
+        >
           <h1 className="text-4xl md:text-6xl font-bold text-red-600 leading-tight">
             ป้ายโฆษณาครบวงจร
             <br className="hidden md:block" />
@@ -64,7 +114,10 @@ export default function Home() {
         </a>
       </section>
 
-      <section className="flex flex-col md:flex-row justify-center items-center gap-8 my-10 pt-6">
+      <section
+        className="flex flex-col md:flex-row justify-center items-center gap-8 my-10 pt-6"
+        data-aos="fade-up"
+      >
         <a
           href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
           target="_blank"
@@ -73,6 +126,8 @@ export default function Home() {
               text-orange-500 text-2xl font-bold
               hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-orange-100
               transition duration-300 ease-in-out cursor-pointer"
+          data-aos="zoom-in"
+          data-aos-delay="0"
         >
           <p>
             สำหรับ SME
@@ -83,13 +138,12 @@ export default function Home() {
 
         {/* ปุ่ม 2: ธุรกิจประเภทต่างๆ */}
         <div
-          href="https://m.me/ArtistAdvertisingCM?ref=สนใจสอบถามครับ"
-          target="_blank"
-          rel="noopener noreferrer"
           className="w-60 h-60 flex items-center justify-center border-4 border-blue-700 rounded-full text-center
               text-blue-700 text-2xl font-bold
               hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-blue-100
               transition duration-300 ease-in-out cursor-pointer"
+          data-aos="zoom-in"
+          data-aos-delay="120"
         >
           <p>
             ธุรกิจประเภท
@@ -107,6 +161,8 @@ export default function Home() {
               text-pink-600 text-2xl font-bold
               hover:scale-105 hover:shadow-xl hover:ring-4 hover:ring-pink-100
               transition duration-300 ease-in-out cursor-pointer"
+          data-aos="zoom-in"
+          data-aos-delay="240"
         >
           <p>
             สำหรับ
@@ -117,12 +173,21 @@ export default function Home() {
           </p>
         </a>
       </section>
+
       {/* Services Section */}
       <section id="services" className="py-20 px-8">
-        <h3 className="text-3xl font-semibold text-center mb-12">
+        <h3
+          className="text-3xl font-semibold text-center mb-12"
+          data-aos="fade-up"
+        >
           ตัวอย่างงานของเรา
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 text-center max-w-4xl mx-auto ">
+
+        <div
+          className="grid grid-cols-1 md:grid-cols-6 gap-8 text-center max-w-4xl mx-auto "
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           {[
             {
               title: "ป้ายไวนิล/สติ๊กเกอร์/สแตนดี้",
@@ -154,10 +219,12 @@ export default function Home() {
               link: "/show6",
               img: "/img/service/060/59.jpg",
             },
-          ].map(({ title, desc, img, link }, i) => (
+          ].map(({ title, img, link }, i) => (
             <div
               key={i}
               className="col-span-3 p-6 rounded-xl shadow-lg border border-white/20 bg-white/30 backdrop-blur-md"
+              data-aos="fade-up"
+              data-aos-delay={100 + i * 80}
             >
               <h4 className="text-xl font-bold mb-2">{title}</h4>
               <Image
@@ -167,7 +234,6 @@ export default function Home() {
                 height={500}
                 className="w-50 h-48 object-cover rounded-lg mb-4  block mx-auto "
               />
-
               <a
                 href={link}
                 className="mt-4 inline-block border-2 border-gray-600 text-sky-600 px-6 py-2 rounded-full hover:bg-sky-100 hover:text-sky-800 transition transform hover:-translate-y-1 hover:shadow-lg"
@@ -181,7 +247,7 @@ export default function Home() {
 
       {/* Facebook Section */}
       <section id="Facebook" className="py-5 px-6 ">
-        <div className="max-w-4xl mx-auto text-center mb-12">
+        <div className="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
           <h1 className="text-3xl font-semibold text-gray-800 mb-2">
             ติดตามเรา
           </h1>
@@ -190,7 +256,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto" data-aos="zoom-in">
           <div className="p-6 md:p-8 rounded-2xl shadow-xl bg-white/70 backdrop-blur-lg border border-gray-200 flex justify-center">
             <iframe
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArtistAdvertisingCM&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
@@ -209,11 +275,19 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="pricing" className="py-20 bg-gray-50 px-8 mt-10">
-        <h3 className="text-3xl font-semibold text-center mb-12">
+        <h3
+          className="text-3xl font-semibold text-center mb-12"
+          data-aos="fade-up"
+        >
           ช่องทางการติดต่อ
         </h3>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-screen-xl mx-auto">
-          <div className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md">
+          <div
+            className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md"
+            data-aos="flip-left"
+            data-aos-delay="0"
+          >
             <h4 className="text-xl font-bold mb-6">เพจเฟสบุ๊ค</h4>
             <i className="fa-brands fa-facebook-messenger text-7xl text-blue-600 mb-8 transition-transform duration-300 hover:scale-110 hover:rotate-6"></i>
             <a
@@ -226,7 +300,11 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="p-8 border rounded-xl shadow-md border-white/20 bg-white/30 backdrop-blur-md">
+          <div
+            className="p-8 border rounded-xl shadow-md border-white/20 bg-white/30 backdrop-blur-md"
+            data-aos="flip-left"
+            data-aos-delay="150"
+          >
             <h4 className="text-xl font-bold mb-6">เบอร์ติดต่อ</h4>
             <i className="fa-solid fa-phone-volume text-5xl text-green-600 mb-8 transition-transform duration-300 hover:scale-110 hover:rotate-6"></i>
             <ul className="text-sm mb-6">
@@ -240,7 +318,11 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md">
+          <div
+            className="p-8 border rounded-xl shadow-md flex flex-col items-center border-white/20 bg-white/30 backdrop-blur-md"
+            data-aos="flip-left"
+            data-aos-delay="300"
+          >
             <h4 className="text-xl font-bold mb-6">Line</h4>
             <i className="fa-brands fa-line text-7xl text-green-500 mb-8 transition-transform duration-300 hover:scale-110 hover:rotate-6"></i>
             <a className="mt-5 inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg">
@@ -252,8 +334,11 @@ export default function Home() {
 
       {/* Google Map Section */}
       <section className="py-16 bg-gray-200 text-center">
-        <h3 className="text-2xl font-bold mb-8">Google Map</h3>
-        <div className="flex justify-center mb-8">
+        <h3 className="text-2xl font-bold mb-8" data-aos="fade-up">
+          Google Map
+        </h3>
+
+        <div className="flex justify-center mb-8" data-aos="zoom-in">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.551972948434!2d99.0281366761065!3d18.818109582334145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da2523bfa4bf17%3A0xec4af778c9e0f651!2zVHJpcGxlLVMgTWVkaWEgRGVzaWduIOC4l-C4s-C4m-C5ieC4suC4ouC5gOC4iuC4teC4ouC4h-C5g-C4q-C4oeC5iA!5e0!3m2!1sth!2sth!4v1745511889429!5m2!1sth!2sth"
             width="100%"
@@ -265,11 +350,14 @@ export default function Home() {
             className="rounded-xl shadow-md w-full max-w-4xl"
           ></iframe>
         </div>
+
         <a
           href="https://maps.app.goo.gl/YgnsnUA9cMfyZRt59"
           className="inline-block border-2 border-gray-600 text-black px-6 py-2 rounded hover:bg-sky-100 transition transform hover:-translate-y-1 hover:shadow-lg"
           target="_blank"
           rel="noopener noreferrer"
+          data-aos="fade-up"
+          data-aos-delay="150"
         >
           เปิด Google
         </a>
