@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -16,17 +17,38 @@ const images = [
   { src: "/img/service/030/2.jpg", alt: "ภาพ 9" },
 ];
 
+// ใช้ Portal ให้ overlay ไม่ถูกจำกัดด้วย transform ของ parent
+function LightboxPortal({ children }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return createPortal(children, document.body);
+}
+
 export default function Neon() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    AOS.init({
-      duration: 800, // ความเร็วอนิเมชัน
-      easing: "ease-out", // ลื่นตา
-      once: true, // เล่นครั้งเดียวเมื่อเลื่อนถึง
-      offset: 80, // เริ่มก่อนเข้า viewport นิดนึง
-    });
+    AOS.init({ duration: 800, easing: "ease-out", once: true, offset: 80 });
   }, []);
+
+  // ล็อกสกโรลขณะเปิด lightbox
+  useEffect(() => {
+    if (!selectedImage) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = prev);
+  }, [selectedImage]);
+
+  // ปิดด้วย Esc
+  const onKeyDown = useCallback((e) => {
+    if (e.key === "Escape") setSelectedImage(null);
+  }, []);
+  useEffect(() => {
+    if (!selectedImage) return;
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedImage, onKeyDown]);
 
   return (
     <>
@@ -36,45 +58,48 @@ export default function Neon() {
         data-aos="fade-up"
       >
         {images.map(({ src, alt }, idx) => {
-          // เลือกเอฟเฟ็กต์ตามคอลัมน์: ซ้าย -> ขวา
-          const col = idx % 3;
+          const col = idx % 3; // 0=ซ้าย,1=กลาง,2=ขวา
           const effect =
             col === 0 ? "fade-right" : col === 1 ? "zoom-in" : "fade-left";
-
           return (
             <img
               key={idx}
               src={src}
               alt={alt}
+              loading="lazy"
               className="w-full h-48 object-cover rounded shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
               onClick={() => setSelectedImage(src)}
               data-aos={effect}
-              data-aos-delay={100 + (idx % 6) * 80} // ไล่สเต็ปเป็นคลื่น
+              data-aos-delay={100 + (idx % 6) * 80}
             />
           );
         })}
       </div>
 
-      {/* Lightbox แบบค่อย ๆ โผล่ พร้อมขยายเต็มมากขึ้น */}
+      {/* Lightbox ผ่าน Portal → เต็มจอจริง ๆ */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 animate-fadein"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="ขยายรูป"
-            className="max-w-[95vw] max-h-[90vh] rounded-lg shadow-lg transform scale-100 animate-zoomin"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
+        <LightboxPortal>
+          <div
+            className="fixed inset-0 z-[9999] bg-black/85 flex items-center justify-center animate-fadein"
             onClick={() => setSelectedImage(null)}
-            className="absolute top-5 right-5 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition"
-            aria-label="ปิดรูปภาพ"
+            role="dialog"
+            aria-modal="true"
           >
-            ✕
-          </button>
-        </div>
+            <img
+              src={selectedImage}
+              alt="ขยายรูป"
+              className="max-w-[95vw] max-h-[90vh] rounded-lg shadow-lg animate-zoomin"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-5 right-5 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 transition"
+              aria-label="ปิดรูปภาพ"
+            >
+              ✕
+            </button>
+          </div>
+        </LightboxPortal>
       )}
 
       {/* Keyframes ของ lightbox */}

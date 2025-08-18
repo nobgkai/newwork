@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -19,10 +20,18 @@ const images = [
   { src: "/img/service/020/10.jpg", alt: "ภาพ 12" },
 ];
 
+// ให้ Lightbox เรนเดอร์ที่ document.body ป้องกันปัญหา parent มี transform
+function LightboxPortal({ children }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return createPortal(children, document.body);
+}
+
 export default function Electric() {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // init AOS (ปิดอัตโนมัติถ้าผู้ใช้ตั้ง reduced motion)
+  // init AOS
   useEffect(() => {
     AOS.init({
       duration: 850,
@@ -36,7 +45,7 @@ export default function Electric() {
     });
   }, []);
 
-  // ปิด Lightbox ด้วยปุ่ม Esc
+  // ปิด Lightbox ด้วย Esc
   const onKeyDown = useCallback((e) => {
     if (e.key === "Escape") setSelectedImage(null);
   }, []);
@@ -45,6 +54,14 @@ export default function Electric() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [selectedImage, onKeyDown]);
+
+  // ล็อกสกโรลตอนเปิด lightbox
+  useEffect(() => {
+    if (!selectedImage) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = prev);
+  }, [selectedImage]);
 
   const handleImgLoad = () => AOS.refresh();
 
@@ -57,11 +74,9 @@ export default function Electric() {
         data-aos-anchor-placement="top-bottom"
       >
         {images.map(({ src, alt }, idx) => {
-          // สลับเอฟเฟ็กต์ตามคอลัมน์: ซ้าย/กลาง/ขวา
-          const col = idx % 3;
+          const col = idx % 3; // ซ้าย/กลาง/ขวา
           const effect =
             col === 0 ? "fade-right" : col === 1 ? "zoom-in" : "fade-left";
-
           return (
             <img
               key={idx}
@@ -72,34 +87,36 @@ export default function Electric() {
               className="w-full h-48 object-cover rounded shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
               onClick={() => setSelectedImage(src)}
               data-aos={effect}
-              data-aos-delay={100 + (idx % 6) * 80} // ไล่สเต็ปเป็นคลื่น
+              data-aos-delay={100 + (idx % 6) * 80}
             />
           );
         })}
       </div>
 
-      {/* Lightbox แบบค่อย ๆ โผล่ พร้อมขยายเต็มมากขึ้น */}
+      {/* Lightbox ผ่าน Portal → เต็มจอจริง */}
       {selectedImage && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 animate-fadein"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="ขยายรูป"
-            className="max-w-[95vw] max-h-[90vh] rounded-lg shadow-lg transform scale-100 animate-zoomin"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
+        <LightboxPortal>
+          <div
+            className="fixed inset-0 z-[9999] bg-black/85 flex items-center justify-center animate-fadein"
+            role="dialog"
+            aria-modal="true"
             onClick={() => setSelectedImage(null)}
-            className="absolute top-5 right-5 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition"
-            aria-label="ปิดรูปภาพ"
           >
-            ✕
-          </button>
-        </div>
+            <img
+              src={selectedImage}
+              alt="ขยายรูป"
+              className="max-w-[95vw] max-h-[90vh] rounded-lg shadow-lg animate-zoomin"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-5 right-5 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 transition"
+              aria-label="ปิดรูปภาพ"
+            >
+              ✕
+            </button>
+          </div>
+        </LightboxPortal>
       )}
 
       {/* Keyframes ของ lightbox */}
